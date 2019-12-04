@@ -15,5 +15,5 @@ I have a few goals for this bot, that are a little out of the box and may not co
 ## How to install
 I dont know how to install on your computer so you wont be able to until I can figure out how you can use this lol
 
-But if you want you can clone the repo
+But if you want you can clone the repo then go ahead.
  
