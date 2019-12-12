@@ -173,7 +173,7 @@ class InstagramBot:
 LexIG = InstagramBot("ladaayylexx", "Greatness22")
 LexIG.login()
 LexIG.no_Notifications()
-# LexIG.toFollow(hashtag_list)
+LexIG.toFollow(hashtag_list)
 LexIG.likephoto(hashtag_list)
 print('Liked {} photos.'.format(likes))
 print('Followed {} new people.'.format(followed))
