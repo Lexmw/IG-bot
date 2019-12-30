@@ -51,7 +51,7 @@ class InstagramBot:
         Not_Now_button.click()
         time.sleep(2)
 
-    def likephoto(self, hashtag_list):
+    def like_and_follow(self, hashtag_list):
         tag = -1
         for hashtag in hashtag_list:
             tag += 1
@@ -72,8 +72,7 @@ class InstagramBot:
 
                 #creating an array of photos
                 pic_hrefs = [elem.get_attribute('href') for elem in hrefs]
-                # [pic_hrefs.append(href)]
-                #  for href in hrefs if href not in pic_hrefs]
+              
                 print('photos from :', hashtag, str(len(pic_hrefs)))
                 time.sleep(2)
 
@@ -93,19 +92,22 @@ class InstagramBot:
 
                     if username not in prev_user_list:
                     
-                    if driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div/article/header/div[2]/div[1]/div[2]/button').text == 'Follow':
+                        if driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div/article/header/div[2]/div[1]/div[2]/button').text == 'Follow':
 
-                        driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div/article/header/div[2]/div[1]/div[2]/button').click()
-                        new_followed.append(username)
-                        followed += 1
-                    time.sleep(20)
+                            driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div/article/header/div[2]/div[1]/div[2]/button').click()
+                            new_followed.append(username)
+                            followed += 1
+                        time.sleep(20)
+
                 except:
                     time.sleep(10)
+
+        for n in range(0,len(new_followed)):
+            prev_user_list.append(new_followed[n])
 
 LexIG = InstagramBot("username", "password")
 LexIG.login()
 LexIG.no_Notifications()
-LexIG.likephoto(hashtag_list)
-LexIG.toFollow(hashtag_list)
+LexIG.like_and_follow(hashtag_list)
 print('Liked {} photos.'.format(likes))
 print('Followed {} new people.'.format(followed))
